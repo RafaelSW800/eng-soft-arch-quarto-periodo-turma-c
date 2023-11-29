@@ -9,10 +9,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
 @Table(name="rafaeldeoliveira_pix")
-public class PixBO {
-    
+@Entity
+public class PixBO
+{
     @Id
     private UUID id;
 
@@ -25,17 +25,19 @@ public class PixBO {
     @Column(length = 1000)
     private String description;
 
+    // Código PIX copia e cola
     @Column(length = 1000)
     private String emv;
 
     @Column(length = 1000)
     private String base64;
 
+    // Expiração em um dia
     @Column
     private LocalDateTime expiration;
 
-    public PixBO(String id, BigDecimal amount, String email, String description,
-                 String emv, String base64, LocalDateTime expiration) {
+    public PixBO(String id, BigDecimal amount, String email, String description, String emv, String base64, LocalDateTime expiration)
+    {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.amount = amount;
         this.email = email;
@@ -46,43 +48,53 @@ public class PixBO {
 
         validate();
     }
+
+    public PixBO() {}
     
-    public void validate() {
+    public void validate() 
+    {
         // validação -- exceção
     }
 
-    public void updateEmvData(String emv, String base64, LocalDateTime expiration) {
+    public void updateEmvData(String emv, String base64, LocalDateTime expiration) 
+    {
         this.emv = emv;
         this.base64 = base64;
         this.expiration = expiration;
     }
 
-    public UUID getId() {
+    public UUID getId() 
+    {
         return id;
     }
 
-    public BigDecimal getAmount() {
+    public BigDecimal getAmount() 
+    {
         return amount;
     }
 
-    public String getEmail() {
+    public String getEmail() 
+    {
         return email;
     }
 
-    public String getDescription() {
+    public String getDescription() 
+    {
         return description;
     }
 
-    public String getEmv() {
+    public String getEmv() 
+    {
         return emv;
     }
 
-    public String getBase64() {
+    public String getBase64() 
+    {
         return base64;
     }
 
-    public LocalDateTime getExpiration() {
+    public LocalDateTime getExpiration() 
+    {
         return expiration;
     }
-
 }

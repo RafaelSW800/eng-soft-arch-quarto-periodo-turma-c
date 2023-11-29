@@ -3,9 +3,10 @@ package com.aktie.domain.mappers;
 import com.aktie.domain.dto.PixDTO;
 import com.aktie.domain.entities.PixBO;
 
-public class PixMapper {
-
-    public static PixDTO toDTO(PixBO bo) {
+public class PixMapper 
+{
+    public static PixDTO toDTO(PixBO bo) 
+    {
         PixDTO dto = new PixDTO();
 
         dto.setId(bo.getId().toString());
@@ -19,7 +20,8 @@ public class PixMapper {
         return dto;
     }
 
-    public static PixBO toBO(PixDTO dto) {
+    public static PixBO toBO(PixDTO dto) 
+    {
         return new PixBO(
                 dto.getId(),
                 dto.getAmount(),
@@ -29,5 +31,4 @@ public class PixMapper {
                 dto.getBase64(),
                 dto.getExpiration());
     }
-
 }
